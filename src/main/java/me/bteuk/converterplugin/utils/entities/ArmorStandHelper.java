@@ -83,7 +83,7 @@ public class ArmorStandHelper {
         EntityEquipment armorEquipment = armorStand.getEquipment();
         for(int c = 0; c < 4; c++) {
             JSONObject armorItemObject = (JSONObject) armorItemsArray.get(c);
-            if (armorItemObject.isEmpty())
+            if (armorItemObject == null || armorItemObject.isEmpty())
                 continue;
 
             String armorItemID = ((String) armorItemObject.get("id")).substring(10);

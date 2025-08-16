@@ -28,10 +28,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Helper class to convert items stored in entities inside post-processing json file to in-game ItemStack items
@@ -123,7 +120,7 @@ public class ItemsHelper {
                     int amplifier = 1;
                     if(customPotionEffectItem.containsKey("amplifier"))
                         amplifier = (int)(long)customPotionEffectItem.get("amplifier");
-                    PotionEffect potionEffect = new PotionEffect(PotionEffectType.getByKey(new NamespacedKey("minecraft", (String) customPotionEffectItem.get("id"))), (int)(long)customPotionEffectItem.get("duration"), amplifier);
+                    PotionEffect potionEffect = new PotionEffect(Objects.requireNonNull(PotionEffectType.getByKey(new NamespacedKey("minecraft", (String) customPotionEffectItem.get("id")))), (int)(long)customPotionEffectItem.get("duration"), amplifier);
                     if(customPotionEffectItem.containsKey("ambient"))
                         potionEffect.withAmbient((int)(long)customPotionEffectItem.get("ambient") == 1);
                     if(customPotionEffectItem.containsKey("show_particles"))
@@ -301,17 +298,19 @@ public class ItemsHelper {
                     blockStateMeta.setBlockState(shulkerBox);
                     itemStack.setItemMeta(blockStateMeta);
                     itemMeta = itemStack.getItemMeta();
-                }else if(id.contains("banner")){
+                }else if(id.contains("banner") && blockEntity.containsKey("patterns")){
                     BannerMeta bannerMeta = (BannerMeta) itemMeta;
                     JSONArray _patterns = (JSONArray) blockEntity.get("patterns");
-                    for(int c = 0; c < _patterns.size(); c++){
-                        JSONObject _pattern = (JSONObject) _patterns.get(c);
-                        bannerMeta.addPattern(new Pattern(Utils.getDyeColour((String) _pattern.get("colour")),
-                                Utils.getPatternType((String) _pattern.get("pattern"))));
-                    }
+                    if(_patterns != null) {
+                        for (int c = 0; c < _patterns.size(); c++) {
+                            JSONObject _pattern = (JSONObject) _patterns.get(c);
+                            bannerMeta.addPattern(new Pattern(Utils.getDyeColour((String) _pattern.get("colour")),
+                                    Utils.getPatternType((String) _pattern.get("pattern"))));
+                        }
 
-                    itemStack.setItemMeta(bannerMeta);
-                    itemMeta = itemStack.getItemMeta();
+                        itemStack.setItemMeta(bannerMeta);
+                        itemMeta = itemStack.getItemMeta();
+                    }
                 }
 
 

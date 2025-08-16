@@ -209,7 +209,8 @@ public class Plugin extends JavaPlugin {
     @Override
     public void onDisable(){
         try {
-            ItemMapsHelper.instance.writeMapsID();
+            if(ItemMapsHelper.instance != null)
+                ItemMapsHelper.instance.writeMapsID();
         }catch (Exception ex){
             getLogger().warning("Warning, error while writing mapID.json: " + ex.getMessage());
         }

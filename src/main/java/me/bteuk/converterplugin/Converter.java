@@ -1577,7 +1577,7 @@ public class Converter {
     }
 
     private void setBannerPatterns(Block block, JSONArray patterns) {
-        if (!patterns.isEmpty()) {
+        if (patterns != null && !patterns.isEmpty()) {
             Banner banner = (Banner) block.getState();
 
             for (Object o : patterns) {
