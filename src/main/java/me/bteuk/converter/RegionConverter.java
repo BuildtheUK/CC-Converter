@@ -132,6 +132,7 @@ public class RegionConverter extends Thread {
                 try {
                     convert();
                 } catch (IOException ex) {
+                    ex.printStackTrace();
                     System.out.println("An IOException occurred converting the file: " + file);
                 } catch (Exception e) {
                     e.printStackTrace();

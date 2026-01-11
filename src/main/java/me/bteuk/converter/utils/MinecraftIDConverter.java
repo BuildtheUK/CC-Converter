@@ -594,8 +594,10 @@ public class MinecraftIDConverter {
             }
 
             //Dispenser, Dropper, Hopper, Shulker Boxes, Chests
-            case 23, 54, (byte) 146, (byte) 154, (byte) 158, (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223, (byte) 224, (byte) 225,
-                 (byte) 226, (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234  -> {
+            case 23, 54, (byte) 146, (byte) 154, (byte) 158, (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223,
+                (byte) 224, (byte) 225,
+                (byte) 226, (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233,
+                (byte) 234 -> {
                 getInventoryTags(block_entity, jo);
             }
         }
@@ -690,13 +692,14 @@ public class MinecraftIDConverter {
                 }
             }
 
-            case 23,  53, 67, 108, 109, 114, (byte) 128, (byte) 134, (byte) 135, (byte) 136, (byte) 156, (byte) 163,
-                    (byte) 164, (byte) 180, (byte) 203, 85, 113, (byte) 188, (byte) 189, (byte) 190, (byte) 191,
-                    (byte) 192, (byte) 139, 101, 102, (byte) 160, 54, (byte) 146, 55, (byte) 199, 26,
-                    (byte) 176, (byte) 177, 104, 105, (byte) 140, (byte) 144, 25, (byte) 132, 106,
-                    64, 71, (byte) 154, (byte) 158, (byte) 193, (byte) 194, (byte) 195, (byte) 196, (byte) 197,
-                 (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223, (byte) 224, (byte) 225,
-                 (byte) 226, (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234-> {
+            case 23, 53, 67, 108, 109, 114, (byte) 128, (byte) 134, (byte) 135, (byte) 136, (byte) 156, (byte) 163,
+                (byte) 164, (byte) 180, (byte) 203, 85, 113, (byte) 188, (byte) 189, (byte) 190, (byte) 191,
+                (byte) 192, (byte) 139, 101, 102, (byte) 160, 54, (byte) 146, 55, (byte) 199, 26,
+                (byte) 176, (byte) 177, 104, 105, (byte) 140, (byte) 144, 25, (byte) 132, 106,
+                64, 71, (byte) 154, (byte) 158, (byte) 193, (byte) 194, (byte) 195, (byte) 196, (byte) 197,
+                (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223, (byte) 224, (byte) 225,
+                (byte) 226, (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233,
+                (byte) 234 -> {
                 return true;
             }
         }
@@ -738,8 +741,9 @@ public class MinecraftIDConverter {
 
             //Dispenser, (Trapped) Chest, Shulker Boxes and Dropper (all default values since we don't care what's inside)
             case 23, 54, (byte) 146, (byte) 158, (byte) 219, (byte) 220, (byte) 221,
-                    (byte) 222, (byte) 223, (byte) 224, (byte) 225, (byte) 226, (byte) 227, (byte) 228, (byte) 229,
-                    (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234 -> block_entity.put("Items", new ListTag<>(CompoundTag.class));
+                (byte) 222, (byte) 223, (byte) 224, (byte) 225, (byte) 226, (byte) 227, (byte) 228, (byte) 229,
+                (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234 ->
+                    block_entity.put("Items", new ListTag<>(CompoundTag.class));
 
             //Mob Spawner (all default values)
             case 52 -> {
@@ -1811,7 +1815,8 @@ public class MinecraftIDConverter {
             case 6 -> block_states.putString("stage", "0");
 
             //Shulker Boxes
-            case (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223, (byte) 224, (byte) 225, (byte) 226, (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234 -> {
+            case (byte) 219, (byte) 220, (byte) 221, (byte) 222, (byte) 223, (byte) 224, (byte) 225, (byte) 226,
+                (byte) 227, (byte) 228, (byte) 229, (byte) 230, (byte) 231, (byte) 232, (byte) 233, (byte) 234 -> {
                 switch (data) {
 
                     case 0 -> block_states.putString("facing", "down");
@@ -5941,72 +5946,365 @@ public class MinecraftIDConverter {
     public static String getEffectID(int legacyID){
 
         switch (legacyID) {
-            case 1: return "speed";
-            case 2: return "slowness";
-            case 3: return "haste";
-            case 4: return "mining_fatigue";
-            case 5: return "strength";
-            case 6: return "instant_health";
-            case 7: return "instant_damage";
-            case 8: return "jump_boost";
-            case 9: return "nausea";
-            case 10: return "regeneration";
-            case 11: return "resistance";
-            case 12: return "fire_resistance";
-            case 13: return "water_breathing";
-            case 14: return "invisibility";
-            case 15: return "blindness";
-            case 16: return "night_vision";
-            case 17: return "hunger";
-            case 18: return "weakness";
-            case 19: return "poison";
-            case 20: return "wither";
-            case 21: return "health_boost";
-            case 22: return "absorption";
-            case 23: return "saturation";
-            case 24: return "glowing";
-            case 25: return "levitation";
-            case 26: return "luck";
-            case 27: return "unluck";
-            case 28: return "slow_falling";
-            case 29: return "conduit_power";
-            case 30: return "dolphins_grace";
-            case 31: return "bad_omen";
-            case 32: return "hero_of_the_village";
-            case 33: return "darkness";
-            default: return  "fatal_poison";
+            case 1:
+                return "speed";
+            case 2:
+                return "slowness";
+            case 3:
+                return "haste";
+            case 4:
+                return "mining_fatigue";
+            case 5:
+                return "strength";
+            case 6:
+                return "instant_health";
+            case 7:
+                return "instant_damage";
+            case 8:
+                return "jump_boost";
+            case 9:
+                return "nausea";
+            case 10:
+                return "regeneration";
+            case 11:
+                return "resistance";
+            case 12:
+                return "fire_resistance";
+            case 13:
+                return "water_breathing";
+            case 14:
+                return "invisibility";
+            case 15:
+                return "blindness";
+            case 16:
+                return "night_vision";
+            case 17:
+                return "hunger";
+            case 18:
+                return "weakness";
+            case 19:
+                return "poison";
+            case 20:
+                return "wither";
+            case 21:
+                return "health_boost";
+            case 22:
+                return "absorption";
+            case 23:
+                return "saturation";
+            case 24:
+                return "glowing";
+            case 25:
+                return "levitation";
+            case 26:
+                return "luck";
+            case 27:
+                return "unluck";
+            case 28:
+                return "slow_falling";
+            case 29:
+                return "conduit_power";
+            case 30:
+                return "dolphins_grace";
+            case 31:
+                return "bad_omen";
+            case 32:
+                return "hero_of_the_village";
+            case 33:
+                return "darkness";
+            default:
+                return "fatal_poison";
         }
+    }
+
+    /**
+     * Get the legacy 1.12.2 string Item ID based on the legacy numerical item ID
+     *
+     * @param legacyID The legacy 1.12.2 numerical item ID
+     * @return
+     */
+    public static String getItemNamespaceID(int legacyID) {
+        return switch (legacyID) {
+            case 256 -> "iron_shovel";
+            case 257 -> "iron_pickaxe";
+            case 258 -> "iron_axe";
+            case 259 -> "flint_and_steel";
+            case 260 -> "apple";
+            case 261 -> "bow";
+            case 262 -> "arrow";
+            case 263 -> "coal";
+            case 264 -> "diamond";
+            case 265 -> "iron_ingot";
+            case 266 -> "gold_ingot";
+            case 267 -> "iron_sword";
+            case 268 -> "wooden_sword";
+            case 269 -> "wooden_shovel";
+            case 270 -> "wooden_pickaxe";
+            case 271 -> "wooden_pickaxe";
+            case 272 -> "stone_sword";
+            case 273 -> "stone_shovel";
+            case 274 -> "stone_pickaxe";
+            case 275 -> "stone_axe";
+            case 276 -> "diamond_sword";
+            case 277 -> "diamond_shovel";
+            case 278 -> "diamond_pickaxe";
+            case 279 -> "diamond_axe";
+            case 280 -> "stick";
+            case 281 -> "bowl";
+            case 282 -> "mushroom_stew";
+            case 283 -> "golden_sword";
+            case 284 -> "golden_shovel";
+            case 285 -> "golden_pickaxe";
+            case 286 -> "golden_axe";
+            case 287 -> "string";
+            case 288 -> "feather";
+            case 289 -> "gunpowder";
+            case 290 -> "wooden_hoe";
+            case 291 -> "stone_hoe";
+            case 292 -> "iron_hoe";
+            case 293 -> "diamond_hoe";
+            case 294 -> "golden_hoe";
+            case 295 -> "wheat_seeds";
+            case 296 -> "wheat";
+            case 297 -> "bread";
+            case 298 -> "leather_helmet";
+            case 299 -> "leather_chestplate";
+            case 300 -> "leather_leggings";
+            case 301 -> "leather_boots";
+            case 302 -> "chainmail_helmet";
+            case 303 -> "chainmail_chestplate";
+            case 304 -> "chainmail_leggings";
+            case 305 -> "chainmail_boots";
+            case 306 -> "iron_helmet";
+            case 307 -> "iron_chestplate";
+            case 308 -> "iron_leggings";
+            case 309 -> "iron_boots";
+            case 310 -> "diamond_helmet";
+            case 311 -> "diamond_chestplate";
+            case 312 -> "diamond_leggings";
+            case 313 -> "diamond_boots";
+            case 314 -> "golden_helmet";
+            case 315 -> "golden_chestplate";
+            case 316 -> "golden_leggings";
+            case 317 -> "golden_boots";
+            case 318 -> "flint";
+            case 319 -> "porkchop";
+            case 320 -> "cooked_porkchop";
+            case 321 -> "painting";
+            case 322 -> "golden_apple";
+            case 323 -> "sign";
+            case 324 -> "wooden_door";
+            case 325 -> "bucket";
+            case 326 -> "water_bucket";
+            case 327 -> "lava_bucket";
+            case 328 -> "minecart";
+            case 329 -> "saddle";
+            case 330 -> "iron_door";
+            case 331 -> "redstone";
+            case 332 -> "snowball";
+            case 333 -> "boat";
+            case 334 -> "leather";
+            case 335 -> "milk_bucket";
+            case 336 -> "brick";
+            case 337 -> "clay_ball";
+            case 338 -> "reeds";
+            case 339 -> "paper";
+            case 340 -> "book";
+            case 341 -> "slime_ball";
+            case 342 -> "chest_minecart";
+            case 343 -> "furnace_minecart";
+            case 344 -> "egg";
+            case 345 -> "compass";
+            case 346 -> "fishing_rod";
+            case 347 -> "clock";
+            case 348 -> "glowstone_dust";
+            case 349 -> "fish";
+            case 350 -> "cooked_fish";
+            case 351 -> "dye";
+            case 352 -> "bone";
+            case 353 -> "sugar";
+            case 354 -> "cake";
+            case 355 -> "bed";
+            case 356 -> "repeater";
+            case 357 -> "cookie";
+            case 358 -> "filled_map";
+            case 359 -> "shears";
+            case 360 -> "melon";
+            case 361 -> "pumpkin_seeds";
+            case 362 -> "melon_seeds";
+            case 363 -> "beef";
+            case 364 -> "cooked_beef";
+            case 365 -> "chicken";
+            case 366 -> "cooked_chicken";
+            case 367 -> "rotten_flesh";
+            case 368 -> "ender_pearl";
+            case 369 -> "blaze_rod";
+            case 370 -> "ghast_tear";
+            case 371 -> "gold_nugget";
+            case 372 -> "nether_wart";
+            case 373 -> "potion";
+            case 374 -> "glass_bottle";
+            case 375 -> "spider_eye";
+            case 376 -> "fermented_spider_eye";
+            case 377 -> "blaze_powder";
+            case 378 -> "magma_cream";
+            case 379 -> "brewing_stand";
+            case 380 -> "cauldron";
+            case 381 -> "ender_eye";
+            case 382 -> "speckled_melon";
+            case 383 -> "spawn_egg";
+            case 384 -> "experience_bottle";
+            case 385 -> "fire_charge";
+            case 386 -> "writable_book";
+            case 387 -> "written_book";
+            case 388 -> "emerald";
+            case 389 -> "item_frame";
+            case 390 -> "flower_pot";
+            case 391 -> "carrot";
+            case 392 -> "potato";
+            case 393 -> "baked_potato";
+            case 394 -> "poisonous_potato";
+            case 395 -> "map";
+            case 396 -> "golden_carrot";
+            case 397 -> "skull";
+            case 398 -> "carrot_on_a_stick";
+            case 399 -> "nether_star";
+            case 400 -> "pumpkin_pie";
+            case 401 -> "fireworks";
+            case 402 -> "firework_charge";
+            case 403 -> "enchanted_book";
+            case 404 -> "comparator";
+            case 405 -> "netherbrick";
+            case 406 -> "quartz";
+            case 407 -> "tnt_minecart";
+            case 408 -> "hopper_minecart";
+            case 409 -> "prismarine_shard";
+            case 410 -> "prismarine_crystals";
+            case 411 -> "rabbit";
+            case 412 -> "cooked_rabbit";
+            case 413 -> "rabbit_stew";
+            case 414 -> "rabbit_foot";
+            case 415 -> "rabbit_hide";
+            case 416 -> "armor_stand";
+            case 417 -> "iron_horse_armor";
+            case 418 -> "golden_horse_armor";
+            case 419 -> "diamond_horse_armor";
+            case 420 -> "lead";
+            case 421 -> "name_tag";
+            case 422 -> "command_block_minecart";
+            case 423 -> "mutton";
+            case 424 -> "cooked_mutton";
+            case 425 -> "banner";
+            case 426 -> "end_crystal";
+            case 427 -> "spruce_door";
+            case 428 -> "birch_door";
+            case 429 -> "jungle_door";
+            case 430 -> "acacia_door";
+            case 431 -> "dark_oak_door";
+            case 432 -> "chorus_fruit";
+            case 433 -> "chorus_fruit_popped";
+            case 434 -> "beetroot";
+            case 435 -> "beetroot_seeds";
+            case 436 -> "beetroot_soup";
+            case 437 -> "dragon_breath";
+            case 438 -> "splash_potion";
+            case 439 -> "spectral_arrow";
+            case 440 -> "tipped_arrow";
+            case 441 -> "lingering_potion";
+            case 442 -> "shield";
+            case 443 -> "shield";
+            case 444 -> "spruce_boat";
+            case 445 -> "birch_boat";
+            case 446 -> "jungle_boat";
+            case 447 -> "acacia_boat";
+            case 448 -> "dark_oak_boat";
+            case 449 -> "totem_of_undying";
+            case 450 -> "shulker_shell";
+            case 452 -> "iron_nugget";
+            case 2256 -> "record_13";
+            case 2257 -> "record_cat";
+            case 2258 -> "record_blocks";
+            case 2259 -> "record_chirp";
+            case 2260 -> "record_far";
+            case 2261 -> "record_mall";
+            case 2262 -> "record_mellohi";
+            case 2263 -> "record_stal";
+            case 2264 -> "record_strad";
+            case 2265 -> "record_ward";
+            case 2266 -> "record_11";
+            case 2267 -> "record_wait";
+            default -> "item";
+        };
     }
 
     /**
      * Get the new 1.18.2+ string Item ID based on the legacy namespace ID of the item and the "Damage" NBT tag from the Item compound tag.
      * Convert and transfer the NBT tags from the Item compound tag to the JSON object properties
+     *
      * @param legacyNamespaceID The string legacy namespace ID of the Item
-     * @param item CompoundTag of the Item
-     * @param props JSON object to write the converted properties from the Item compound tag to
+     * @param item              CompoundTag of the Item
+     * @param props             JSON object to write the converted properties from the Item compound tag to
      * @return The new, flattened 1.18.2+ string ID of the 1.12.2 Item
      */
-    public static String getItemID(String legacyNamespaceID, CompoundTag item, JSONObject props){
-        String namespaceID = legacyNamespaceID;
+    public static String getItemID(String legacyNamespaceID,  CompoundTag item, JSONObject props) {
+        return getItemID(legacyNamespaceID, null, item, props);
+    }
 
-        if(legacyNamespaceID.startsWith("minecraft:")) {
+    /**
+     * Get the new 1.18.2+ string Item ID based on the numerical legacy namespace ID of the item and the "Damage" NBT tag from the Item compound tag.
+     * Convert and transfer the NBT tags from the Item compound tag to the JSON object properties
+     *
+     * @param legacyNamespaceID The numerical legacy namespace ID of the Item
+     * @param item              CompoundTag of the Item
+     * @param props             JSON object to write the converted properties from the Item compound tag to
+     * @return The new, flattened 1.18.2+ string ID of the 1.12.2 Item
+     */
+    public static String getItemID(Integer legacyNamespaceID,  CompoundTag item, JSONObject props) {
+        return getItemID(null, legacyNamespaceID, item, props);
+    }
+
+    private static String getItemID(String legacyNamespaceID, Integer legacyNumericalID,  CompoundTag item, JSONObject props) {
+        String namespaceID = legacyNamespaceID;
+        String newID = "";
+
+        if(legacyNamespaceID == null)
+            legacyNamespaceID = "minecraft:item";
+
+        if (legacyNumericalID != null) {
+            //Check if item is a block
+            if (legacyNumericalID < 256) {
+                short meta = 0;
+                if (item.containsKey("Damage"))
+                    meta = item.getShort("Damage");
+                newID = getBlockName(legacyNumericalID.byteValue(), (byte) meta);
+                legacyNamespaceID = "minecraft:" + newID;
+            } else { //Else get the string legacy or new item id
+                newID = getItemNamespaceID(legacyNumericalID);
+                legacyNamespaceID = "minecraft:" + newID;
+            }
+
+            namespaceID = legacyNamespaceID;
+        }
+
+        if (legacyNamespaceID.startsWith("minecraft:")) {
             String legacyID = legacyNamespaceID.substring(10);
             short damage = 0;
-            if(item.containsKey("Damage"))
+            if (item.containsKey("Damage"))
                 damage = item.getShort("Damage");
             CompoundTag tagItem = new CompoundTag();
-            if(item.containsKey("tag"))
+            if (item.containsKey("tag"))
                 tagItem = item.getCompoundTag("tag");
 
             TagConv.getByteTagProperty(item, "Count", "count", props);
             TagConv.getByteTagProperty(item, "Slot", "slot", props);
+            //Create json object to store potion effect of the potion items
+            JSONObject potionEffects = new JSONObject();
 
             boolean processTag = true;
 
-            String newID = "";
-            switch (legacyID){
+            switch (legacyID) {
                 case "golden_apple" -> {
-                    if(damage == 1)
+                    if (damage == 1)
                         newID = "enchanted_golden_apple";
                 }
                 case "boat" -> {
@@ -6014,14 +6312,16 @@ public class MinecraftIDConverter {
                 }
                 case "reeds" -> {
                     newID = "sugar_cane";
-                }case "fish" -> {
-                    newID = switch (damage){
+                }
+                case "fish" -> {
+                    newID = switch (damage) {
                         case 1 -> "salmon";
                         case 2 -> "tropical_fish";
                         case 3 -> "pufferfish";
                         default -> "cod";
                     };
-                } case "cooked_fish" -> {
+                }
+                case "cooked_fish" -> {
                     newID = (damage == 1) ? "cooked_salmon" : "cooked_cod";
                 }
                 case "dye" -> {
@@ -6053,6 +6353,52 @@ public class MinecraftIDConverter {
                         String mobType = getMobID(entityTag.getString("id"));
                         if(mobType.startsWith("minecraft:"))
                             newID = String.format("%s_spawn_egg", mobType.substring(10));
+                    }else {
+                        //Else Get the mob type from the damage/meta
+                        String mobType = switch (damage) {
+                            case 4 -> "elder_guardian";
+                            case 5 -> "wither_skeleton";
+                            case 6 -> "stray";
+                            case 23 -> "husk";
+                            case 27 -> "zombie_villager";
+                            case 28 -> "skeleton_horse";
+                            case 29 -> "zombie_horse";
+                            case 31 -> "donkey";
+                            case 32 -> "mule";
+                            case 34 -> "evoker";
+                            case 35 -> "vex";
+                            case 36 -> "vindicator";
+                            case 50 -> "creeper";
+                            case 51 -> "skeleton";
+                            case 52 -> "spider";
+                            case 54 -> "zombie";
+                            case 55 -> "slime";
+                            case 56 -> "ghast";
+                            case 57 -> "zombie_pigman";
+                            case 58 -> "enderman";
+                            case 59 -> "cave";
+                            case 61 -> "blaze";
+                            case 62 -> "magma_cube";
+                            case 65 -> "bat";
+                            case 66 -> "witch";
+                            case 67 -> "endermite";
+                            case 68 -> "guardian";
+                            case 69 -> "shulker";
+                            case 90 -> "pig";
+                            case 91 -> "sheep";
+                            case 92 -> "cow";
+                            case 94 -> "squid";
+                            case 95 -> "wolf";
+                            case 96 -> "mooshroom";
+                            case 98 -> "ocelot";
+                            case 100 -> "horse";
+                            case 101 -> "rabbit";
+                            case 102 -> "polar_bear";
+                            case 103 -> "llama";
+                            case 120 -> "villager";
+                            default -> "chicken";
+                        };
+                        newID = String.format("%s_spawn_egg", mobType);
                     }
                 }
                 case "firework_charge" -> newID = "firework_star";
@@ -6080,10 +6426,11 @@ public class MinecraftIDConverter {
                 }
                 case "mob_spawner" -> newID = "spawner";
                 case "writable_book", "written_book" -> {
-                    if(legacyID.equals("written_book")){
-                        if(tagItem.containsKey("generation")){
-                            byte _generation = tagItem.getByte("generation");
-                            String generation = switch (_generation){
+                    if (legacyID.equals("written_book")) {
+                        if (tagItem.containsKey("generation")) {
+                            Tag<?> _generationTag = tagItem.get("generation");
+                            byte _generation =  (_generationTag instanceof ByteTag) ? ((ByteTag)_generationTag).asByte() : ((IntTag)_generationTag).asByte();
+                            String generation = switch (_generation) {
                                 case 1 -> "COPY_OF_ORIGINAL";
                                 case 2 -> "COPY_OF_COPY";
                                 case 3 -> "TATTERED";
@@ -6135,6 +6482,51 @@ public class MinecraftIDConverter {
                     };
                 }
                 case "chorus_fruit_popped" -> newID = "popped_chorus_fruit";
+                case "wooden_door" -> newID = "oak_door";
+                case "potion" -> {
+                    //Get the effect of the potion from the damage and store it under the potion effects
+                    String effect = switch (damage) {
+                        case 32 -> "thick";
+                        case 64 -> "mundane";
+                        case 8193, 16385 -> "regeneration";
+                        case 8194, 16386 -> "swiftness";
+                        case 8195, 16387 -> "fire_resistance";
+                        case 8196, 16388 -> "poison";
+                        case 8197, 16389 -> "healing";
+                        case 8198, 16390 -> "night_vision";
+                        case 8200, 16392 -> "weakness";
+                        case 8201, 16393 -> "strength";
+                        case 8202, 16394 -> "slowness";
+                        case 8204, 16396 -> "harming";
+                        case 8205, 16397 -> "water_breathing";
+                        case 8206, 16398 -> "invisibility";
+                        case 8225, 8289, 16417, 16481 -> "strong_regeneration";
+                        case 8226, 8290, 16418, 16482 -> "strong_swiftness";
+                        case 8228, 8292, 16420, 16425, 16484 -> "strong_poison";
+                        case 8229, 16421 -> "strong_healing";
+                        case 8233, 8297, 16489 -> "strong_strength";
+                        case 8235, 16427 -> "strong_leaping";
+                        case 8236, 16428 -> "strong_harming";
+                        case 8257, 16449 -> "long_regeneration";
+                        case 8258, 16450 -> "long_swiftness";
+                        case 8259, 16451 -> "long_fire_resistance";
+                        case 8260, 16452 -> "long_poison";
+                        case 8262, 16454 -> "long_night_vision";
+                        case 8264, 16456 -> "long_weakness";
+                        case 8265, 16457 -> "long_strength";
+                        case 8266, 16458 -> "long_slowness";
+                        case 8267, 16459 -> "leaping";
+                        case 8269, 16461 -> "long_water_breathing";
+                        case 8270, 16462 -> "long_invisibility";
+                        default -> "akward";
+                    };
+
+                    if(damage >= 16385) {
+                        newID = "splash_potion";
+                    }
+
+                    potionEffects.put("Potion", effect);
+                }
             }
 
             //Music Discs
@@ -6183,8 +6575,7 @@ public class MinecraftIDConverter {
                             default -> "skeleton_skull";
                         };
                         namespaceID = "minecraft:" + skullType;
-                    }
-                    else {
+                    } else {
                         //Block items use the "Damage" tag as the "block data" tag, that determines the variant of the block
                         namespaceID = "minecraft:" + getBlockName(id, (byte) damage);
                     }
@@ -6197,12 +6588,11 @@ public class MinecraftIDConverter {
                 JSONObject blockTags = new JSONObject();
                 JSONObject enchantmentsTags = new JSONObject();
                 JSONArray attributeModifiers = new JSONArray();
-                JSONObject potionEffects = new JSONObject();
 
 
                 //General Tags
                 TagConv.getByteTagProperty(tagItem, "Unbreakable", "unbreakable", generalTags);
-                if(tagItem.containsKey("CanDestroy")){
+                if (tagItem.containsKey("CanDestroy")) {
                     ListTag<StringTag> canDestroyBlocks = tagItem.getListTag("CanDestroy").asStringTagList();
                     List<String> canDestroy = new ArrayList<>();
                     for(StringTag blockID : canDestroyBlocks){
@@ -6320,20 +6710,18 @@ public class MinecraftIDConverter {
                     props.put("EnchantmentsTags", enchantmentsTags);
                 if(!attributeModifiers.isEmpty())
                     props.put("AttributeModifiers", attributeModifiers);
-                if(!potionEffects.isEmpty())
-                    props.put("PotionEffects", potionEffects);
 
             }
 
-        }else {
+            if (!potionEffects.isEmpty())
+                props.put("PotionEffects", potionEffects);
+
+        } else {
             JSONObject customItem = new JSONObject();
             TagConv.getCompoundTagProperties(item, customItem);
             if(!customItem.isEmpty())
                 props.put("CustomItemProps", customItem);
         }
-
-
-
 
 
         return namespaceID;
@@ -6551,9 +6939,11 @@ public class MinecraftIDConverter {
                     mapFile.write(mapItem.toJSONString());
                     mapFile.flush();
                     mapFile.close();
-                }catch (Exception ex){ log.error(String.format("Error while processing map_%1$d.dat | Error: %2$s", id, ex.getMessage()));}
+                } catch (Exception ex) {
+                    log.error(String.format("Error while processing map_%1$d.dat | Error: %2$s", id, ex.getMessage()));
+                }
             }
-           return id;
+            return id;
         });
     }
 
@@ -6800,8 +7190,9 @@ public class MinecraftIDConverter {
             JSONObject jsonItem = new JSONObject();
             if (compoundTag.containsKey("id")) {
                 JSONObject itemProps = new JSONObject();
-                jsonItem.put("id", getItemID(compoundTag.getString("id"), compoundTag, itemProps));
-                if(!itemProps.isEmpty()){
+                Tag<?> idTag = compoundTag.get("id");
+                jsonItem.put("id", (idTag instanceof StringTag) ? getItemID(((StringTag) idTag).getValue(), compoundTag, itemProps) : getItemID(((ShortTag) idTag).asInt(), compoundTag, itemProps));
+                if (!itemProps.isEmpty()) {
                     jsonItem.put("Properties", itemProps);
                 }
             }
@@ -6875,7 +7266,7 @@ public class MinecraftIDConverter {
 
                     JSONObject jsonArmorItem = new JSONObject();
                     JSONObject jsonArmorItemProps = new JSONObject();
-                    String itemID = getItemID(armor.getString("id"), armor, jsonArmorItemProps);;
+                    String itemID = getItemID(armor.getString("id"), armor, jsonArmorItemProps);
                     jsonArmorItem.put("id", itemID);
                     if(!jsonArmorItemProps.isEmpty())
                         jsonArmorItem.put("Properties", jsonArmorItemProps);

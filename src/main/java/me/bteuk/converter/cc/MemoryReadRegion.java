@@ -21,10 +21,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SeekableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryReadRegion<K extends IKey<K>> implements IRegion<K> {
 
@@ -35,6 +32,8 @@ public class MemoryReadRegion<K extends IKey<K>> implements IRegion<K> {
     private final IKeyProvider<K> keyProvider;
     private final int keyCount;
     private ByteBuffer fileBuffer;
+
+    private Set<RegionKey> thrownRegionKeys = new HashSet<>();
 
     private MemoryReadRegion(SeekableByteChannel file,
                              IntPackedSectorMap<K> sectorMap,
@@ -98,14 +97,22 @@ public class MemoryReadRegion<K extends IKey<K>> implements IRegion<K> {
                 int dataLength = fileBuffer.getInt();
                 if (dataLength > sectorCount * sectorSize) {
                     throw new CorruptedDataException(
-                            "Expected data size max" + sectorCount * sectorSize + " but found " + dataLength);
+                            "Expected data size max " + sectorCount * sectorSize + " but found " + dataLength + " at key: " + key.toString() + " (File: " +  key.getRegionKey().getName() + ") , skipping");
                 }
                 fileBuffer.position(sectorOffset * sectorSize + Integer.BYTES);
                 fileBuffer.limit(sectorOffset * sectorSize + Integer.BYTES + dataLength);
 
                 return Optional.of(ByteBuffer.allocate(dataLength).put(fileBuffer));
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                //Only print the full IOException error if the region key didn't already throw an error
+                if(!thrownRegionKeys.contains(key.getRegionKey())) {
+                    Exception exception = new UncheckedIOException(e);
+                    exception.printStackTrace();
+                    thrownRegionKeys.add(key.getRegionKey());
+                }else {
+                    System.out.println(key.getRegionKey().getName() + ": Skipping " + key);
+                }
+                return Optional.empty();
             }
         });
     }
