@@ -12,9 +12,14 @@ import org.btuk.converter.cc.RWLockingCachedRegionProvider;
 import org.btuk.converter.cc.Utils;
 import org.btuk.converter.utils.MinecraftIDConverter;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class WorldIterator {
 

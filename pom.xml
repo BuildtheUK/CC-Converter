@@ -50,8 +50,8 @@
 
     <repositories>
         <repository>
-            <id>SonaType</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
+            <id>DaPorkchop_</id>
+            <url>https://maven.daporkchop.net</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
