@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.bteuk</groupId>
-    <artifactId>CC-1.18.2-Converter</artifactId>
+    <artifactId>CC-Converter</artifactId>
     <version>1.2.1</version>
     <packaging>jar</packaging>
 
