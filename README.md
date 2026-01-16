@@ -1,6 +1,6 @@
-# CC-1.18.2 Converter
+# CC Converter
 
-The CC-1.18.2-Converter is a Java-based tool designed to convert Minecraft worlds from version 1.12.2 to version 1.18.2, specifically for use with creative building in BTE worlds. It allows users to convert the world with specific height settings and use a paper 1.18.2 server with the Converter plugin for further conversion of special blocks. The program uses a command-line interface and allows you to choose the number of threads used in the conversion process. The resulting output includes converted regions, post-processing and entity locations if needed.
+The CC-Converter is a Java-based tool designed to convert Minecraft Cubic Chunks worlds from version 1.12.2 to vanilla version 1.18.2+, specifically for use with creative building in BTE worlds. It allows users to convert the world with specific height settings and use a paper 1.18.2+ server with the Converter plugin for further conversion of special blocks. The program uses a command-line interface and allows you to choose the number of threads used in the conversion process. The resulting output includes converted regions, post-processing and entity locations if needed.
 
 ### Entities
 Entities will be converted but only the supported ones:
@@ -45,7 +45,7 @@ Filled Maps (item and placed map) are supported as well, but it's only been test
 3. Navigate to the directory where the Jar file is located.
 4. Execute the following command in the CLI or terminal:
 
-```java -jar CC-1.18.2-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]```
+```java -jar CC-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]```
 
     - Replace the <path to input> with the path to your input world file folder.
     - Replace the <path to output> with the path to the folder where you want to save the converted world.

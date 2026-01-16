@@ -61,7 +61,7 @@ public class MinecraftIDConverter {
         return block;
     }
 
-    //Convert a legacy Minecraft biome id and get teh 1.18.2 namespace.
+    //Convert a legacy Minecraft biome id and get the 1.18.2 namespace.
     public static String getBiome(byte id) {
         return "minecraft:" + getBiomeName(id);
     }

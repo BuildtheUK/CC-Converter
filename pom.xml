@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.btuk</groupId>
-    <artifactId>CC-1.18.2-Converter</artifactId>
+    <artifactId>CC-Converter</artifactId>
     <version>1.2.0</version>
 
     <licenses>

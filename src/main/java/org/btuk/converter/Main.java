@@ -34,7 +34,7 @@ public class Main {
         if (args.length < 5) {
             System.out.println("You must provide arguments for the input and output folders as well as the min and max height and offset.");
             System.out.println("Additionally the number of threads can be specified.");
-            System.out.println("java -jar CC-1.18.2-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
+            System.out.println("java -jar CC-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
             return;
         }
 
@@ -47,14 +47,14 @@ public class Main {
             MAX_Y_CUBE = Integer.parseInt(args[3]) / 16;
 
         } catch (NumberFormatException e) {
-            System.out.println("java -jar CC-1.18.2-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
+            System.out.println("java -jar CC-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
             return;
         }
         try {
 
             OFFSET = Integer.parseInt(args[4]);
         } catch (NumberFormatException e) {
-            System.out.println("java -jar CC-1.18.2-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
+            System.out.println("java -jar CC-Converter.jar <path to input> <path to output> <minY> <maxY> <offset> [threads]");
             return;
         }
 
