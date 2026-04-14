@@ -51,7 +51,7 @@ Filled Maps (item and placed map) are supported as well, but it's only been test
     - Replace the <path to output> with the path to the folder where you want to save the converted world.
     - Replace <minY> with the minimum Y value of the 1.18.2 world.
     - Replace <maxY> with the maximum Y value of the 1.18.2 world.
-    - Replace <offset> with the desired offset in blocks/meters.
+    - Replace <offset> with the desired offset in blocks/meters. NOTE: the offset is applied to minY and maxY values.
     - Add an optional [threads] parameter to specify the number of threads to use. By default, the program will use one thread.
 5. Press the Enter key to run the command.
 6. The program will begin running and convert your world. The progress will be displayed in the CLI or terminal.
