@@ -48,7 +48,7 @@ To run the converter for this you have to use minY = 3008 and maxY = 4032, as th
 Example 2:
 You have a Cubic Chunks world between minY = -1024 and maxY = 4096. The maxY is too large to fit in a 1.18.2 Minecraft world, however the total range of 4096 - -1024 = 5120 is also larger than the maximum possible for a single 1.18.2 world.
 To solve this issue we can split the world into 2 separate 1.18.2 worlds, plugins like T+- support multiple-worlds so this is a possibility. Currently you will have to run the converter separately for each 1.18.2 world.
-- The first world we will create between y = -1024 and y = 1536, this is exactly half to y-range. To apply this to the converter we simple use the values minY = -1024 and maxY = 1536, we don't need to apply an offset.
+- The first world we will create between y = -1024 and y = 1536, this is exactly half the y-range. To apply this to the converter we use the values minY = -1024 and maxY = 1536, we don't need to apply an offset.
 - The second world will be from y = 1536 and y = 4096, however 4096 doesn't fit, so we must offset the output 1.18.2 world. We choose the output world to be -1024 to 1536 like the previous world, for this we can run the converter with minY = 1536, maxY = 4096 and offset = -2560.
 
 ### Program Steps
